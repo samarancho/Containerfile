@@ -1,0 +1,9 @@
+FROM quay.io/redhattraining/httpd-parent
+RUN mkdir -p /var/www/html/
+RUN echo “Hellocontainer!” > /var/www/html/index.html 
+RUN rm -rf /run/httpd 
+RUN mkdir /run/httpd
+LABEL version=”1.0” 
+LABEL description=”this is Containerfile” 
+MAINTAINER RedHat Training training@redhat.com
+ONBUILDCOPY src/ /var/www/html
